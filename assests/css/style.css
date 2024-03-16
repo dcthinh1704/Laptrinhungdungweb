@@ -360,8 +360,168 @@ body {
   padding: 0 20px;
 }
 
-.rs2-pro-info{
 
 
+/* setting */
+.left-side-chat{
+  display: flex;
+  flex-direction: column;
+  padding: 50px;
+  margin-left: 75px;
 }
-
+.container-headchat{
+  display: inline-block; 
+  padding: 20px 20px 40px; 
+  background-color: white; 
+  border-radius: 20px;
+  width:200%;
+}
+.headchat{
+  font-size: 30px;
+  color: black;
+  margin-bottom: 20px;
+}
+.search-bar {
+  display: flex;
+  align-items: center; 
+  border-radius: 15px; 
+  height: 50px;
+  padding: 0 10px;
+  margin-left:20px;
+  width:90%;
+}
+.container-user{
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  background-color: white;
+  border-radius: 10px;
+  margin-top: 10px;
+  width:200%;
+  overflow-y:scroll;
+  max-height: 450px;
+}
+.user {
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  margin-bottom: 5px;
+}
+.user:hover {
+  background-color: #f0f0f0; /* Màu nền sẽ thay đổi khi di chuột vào */
+}
+.avatar{
+  margin: 10px 15px 15px;
+  width: 50px;
+  height: 50px;
+  background-image: url(../img/diego-sanchez-h_3Y0zb8Gmk-unsplash.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  border-radius: 100%;
+  background-position: center center;
+  background-size: 110%;
+}
+.avty{
+  margin: 10px 15px 15px;
+  width: 40px;
+  height: 40px;
+  background-image: url(../img/diego-sanchez-h_3Y0zb8Gmk-unsplash.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  border-radius: 100%;
+  background-position: center center;
+  background-size: 110%;
+}
+.avtm{
+  margin: 10px 15px 15px 15px;
+  width: 40px;
+  height: 40px;
+  background-image: url(../img/diego-sanchez-h_3Y0zb8Gmk-unsplash.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  border-radius: 100%;
+  background-position: center center;
+  background-size: 110%;
+}
+.user-info {
+  display: flex;
+  flex-direction: column;
+  margin-left: 10px; 
+}
+.username {
+  font-size: 20px;
+  margin-top: 5px;
+  color: black;
+}
+.altmessage {
+  font-size: 14px;
+  color: gray;
+  margin-top:5px;
+}
+.state{
+  font-size: 14px;
+  color: gray;
+  margin-top:5px;
+}
+.chat{
+  display: flex;
+  flex-direction: row;
+}
+.textframe{
+  background-color: white;
+  margin-left:200px;
+  width:800px;
+  height: 727px;
+  border-radius: 15px;
+}
+.headtext{
+  display: flex;
+  flex-direction: row;
+  background-color: #f0f0f0; /* Màu nền của thanh tiêu đề */
+  border-bottom: 1px solid #ccc; 
+  border-top-right-radius: 10px;
+}
+.text-body{
+  flex-grow: 1; /* Độ rộng của cửa sổ chat */
+  height: 600px; /* Chiều cao của cửa sổ chat */
+  border: 1px solid #ccc; /* Viền của cửa sổ chat */
+  border-radius: 10px; /* Độ cong của góc cửa sổ chat */
+  overflow-y: auto;
+}
+.message-container-y{
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 5px;
+}
+.message-container-m{
+  display: flex;
+  align-items: flex-start;
+  flex-direction: row-reverse;
+  margin-bottom: 5px;
+}
+.message{
+  background-color: #9051d7; 
+  padding: 10px; 
+  border-radius: 5px;
+  max-width:400px;
+  margin-top:10px;
+}
+.message-box{
+  display: flex;
+  flex-direction: row;
+}
+.message-box input{
+  margin-top:5px;
+  margin-left:5px;
+  width: calc(100% - 60px); 
+  padding: 10px; 
+  border-radius: 5px;
+}
+.send{
+  background-color: #007bff;
+  color: #fff; 
+  border: none;
+  border-radius: 5px; 
+  padding: 10px 20px;
+  cursor: pointer;
+}
