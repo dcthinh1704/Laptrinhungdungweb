@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./assets/css/style.css" />
+    <link rel="stylesheet" href="./assets/css/reset.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      integrity="sha384-X6d13e5gKALF2DI8z5/jFfkhpk11lK5vdOB67HquyKbSrLp04I0ypSNf/JFF6Ds3"
+      crossorigin="anonymous"
+    />
+    <link href='https://fonts.googleapis.com/css?family=Great Vibes' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Lily Script One' rel='stylesheet'>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <title>Your Blog</title>
+    <style></style>
+  </head>
+  <body>
+    <!-- Header -->
+    <div id="header">
+          <nav class="navbar">
+            <div class="web-name">
+              <h1 style="font-family: 'Lily Script One';">OpenU</h1>
+            </div>
+            <ul class="navbar_items">
+              <li class="active">
+                <a class="navbar_items_home" href="#" title="Home"><i class="fas fa-home"></i>        
+                </a>
+              </li>
+              <li>
+                <a href="#" title="Search"><i class="fas fa-search"></i></a>
+              </li>
+              <li>
+                <a href="#" title="Blog"><i class="fas fa-edit"></i></a>
+              </li>
+              <li>
+                <a
+                  href="#"
+                  title="Notification"
+                  class="nav_noti"
+                  onclick="toggleNotifications()"
+                  ><i class="fas fa-bell nav_noti_icon"></i>
+                  <span class="badge">12</span></a
+                >
+              </li>
+              <li>
+                <a href="#" title="Message" class="nav_mess"
+                  ><i class="fas fa-envelope"></i>
+                  <span class="badge">3</span></a
+                >
+              </li>
+            </ul>
+            <ul class="navbar_items nav-bottom">
+              <li>
+                <a href="#" title="Profile"><i class="fas fa-user"></i></a>
+              </li>
+              <li>
+                <a href="#" title="Settings"
+                  ><i class="fa-solid fa-gear setting"></i
+                ></a>
+              </li>
+            </ul>
+          </nav>
+    </div>
+    <div id="blog-container">
+      <div class="information">
+        <div class="information-image">
+          <img src="./assets/img/avatar.jpg" alt="avatar">
+        </div>
+        <div class="information-details">
+          <div class="information-name">
+            <h2 style="font-family: 'Great Vibes'; font-size: xx-large;">username</h2>
+          </div>
+          <div class="information-follow">
+            <ul class="information-follow-details">
+              <li class="information-follow-details-posts"><span class="information-follow-details-number">2</span>posts</li>
+              <li class="information-follow-details-follower">
+                <a href="#"><span class="information-follow-details-number">267</span>follower</a>
+              </li>
+              <li class="information-follow-details-following">
+                <a href="#"><span class="information-follow-details-number">152</span>following</a>
+              </li>
+            </ul>
+          </div>
+          <div class="information-bio">
+            <h1 class="information-bio-profession">Student</h1>
+            <h1 class="information-bio-details">Don’t cry because it’s over, smile because it happened.</h1>
+            <span class="information-bio-link">
+              <i class="fas fa-link"></i>
+              <a href="https://www.instagram.com/n.khoa26/">https://www.instagram.com/n.khoa26/</a>
+            </span>
+          </div>
+        </div>
+      </div>
+      <div class="information-content">
+          <div class="content-session">
+            <div class="content-session-puposts">
+              <i class="fas fa-book-open" style="color: #999;"></i>
+              <a href="#">Public blog</a>
+            </div>
+            <div class="content-session-loposts">
+              <i class="fas fa-heart" style="color: #999;"></i>
+              <a href="#">Loved blog</a>
+            </div>
+            <div class="content-session-prposts">
+              <i class="fas fa-lock"></i>
+              <a href="#">Priavte blog</a>
+            </div>
+          </div>
+      </div>
+      <div class="content-private-posts">
+        <div class="private-post-1">
+          <div class="post-1-header">
+            <img class="post-1-header-avatar" src="./assets/img/avatar.jpg" alt="avatar">
+            <span class="post-1-header-username">username</span>
+            <time class="post-1-header-time" datetime="2024-03-07T03:58:54.000Z" title="10:58 7 thg 3" data-visualcompletion="ignore-dynamic">1 tuần</time>
+          </div>
+          <div class="post-1-content">
+            <div class="post-1-content-caption">
+              <span class="post-caption-details">Bố cũng không hoàn hảo!</span>
+            </div>
+            <div class="post-1-content-image">
+              <img src="./assets/img/post1.jpg" alt="img1">
+              <img src="./assets/img/post1(1).jpg" alt="img2">
+              <img src="./assets/img/post1(2).jpg" alt="img3">
+            </div>
+            <div class="post-1-content-icons">
+              <ul class="post-1-icons-details">
+                <li><i class="fas fa-heart"></i></li>
+                <li><i class="fas fa-comment"></i></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="private-post-1">
+          <div class="post-1-header">
+            <img class="post-1-header-avatar" src="./assets/img/avatar.jpg" alt="avatar">
+            <span class="post-1-header-username">username</span>
+            <time class="post-1-header-time" datetime="2024-03-07T03:58:54.000Z" title="10:58 7 thg 3" data-visualcompletion="ignore-dynamic">1 tuần</time>
+          </div>
+          <div class="post-1-content">
+            <div class="post-1-content-caption">
+              <span class="post-caption-details">Hãy coi tử tế là một lẽ sống, một thái độ sống. Tử tế để không thẹn với mình, không phụ với người.</span>
+              <span class="post-caption-details">Sách: Những tâm thư gửi chính mình</span>
+              <span class="post-caption-details">#moingay1trangsach</span>
+            </div>
+            <div class="post-1-content-image">
+              <img src="./assets/img/post2.jpg" alt="img1">
+            </div>
+            <div class="post-1-content-icons">
+              <ul class="post-1-icons-details">
+                <li><i class="fas fa-heart"></i></li>
+                <li><i class="fas fa-comment"></i></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Font Awesome Icons (You can include this from a CDN) -->
+    <script
+      src="https://kit.fontawesome.com/c9f23d41c7.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/js/all.min.js"></script>
+
+    <script>
+      function toggleNotifications() {
+        const notifications = document.querySelector(".notifications");
+        notifications.style.display =
+          notifications.style.display === "block" ? "none" : "block";
+      }
+    </script>
+  </body>
+</html>
