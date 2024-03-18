@@ -362,7 +362,7 @@ body {
 
 
 
-/* setting */
+/* chat */
 .left-side-chat{
   display: flex;
   flex-direction: column;
@@ -421,19 +421,8 @@ body {
   background-position: center center;
   background-size: 110%;
 }
-.avty{
-  margin: 10px 15px 15px;
-  width: 40px;
-  height: 40px;
-  background-image: url(../img/diego-sanchez-h_3Y0zb8Gmk-unsplash.jpg);
-  background-size: cover;
-  background-repeat: no-repeat;
-  border-radius: 100%;
-  background-position: center center;
-  background-size: 110%;
-}
-.avtm{
-  margin: 10px 15px 15px 15px;
+.avt{
+  margin: 10px 10px 15px 10px;
   width: 40px;
   height: 40px;
   background-image: url(../img/diego-sanchez-h_3Y0zb8Gmk-unsplash.jpg);
@@ -446,19 +435,18 @@ body {
 .user-info {
   display: flex;
   flex-direction: column;
-  margin-left: 10px; 
 }
 .username {
   font-size: 20px;
-  margin-top: 5px;
+  margin-top: 10px;
   color: black;
 }
-.altmessage {
+.altmessage-nread,.state{
   font-size: 14px;
-  color: gray;
+  color: red;
   margin-top:5px;
 }
-.state{
+.altmessage-seen{
   font-size: 14px;
   color: gray;
   margin-top:5px;
@@ -524,4 +512,45 @@ body {
   border-radius: 5px; 
   padding: 10px 20px;
   cursor: pointer;
+}
+/* setting */
+.main-container{
+  display: flex;
+  justify-content: center; /* Căn giữa theo chiều ngang */
+  align-items: center; /* Căn giữa theo chiều dọc */
+  height: 100vh; /* Chiều cao của toàn bộ trang */
+  margin: 0;
+}
+.grid-container {
+  display: flex;
+  flex-wrap: wrap; /* Cho phép các phần tử xuống dòng khi cần */
+  justify-content: center; /* Căn giữa theo chiều ngang */
+  gap: 20px;
+}
+.grid-item {
+  width: 400px;
+  height: 300px;
+  background-color: #f0f0f0; /* Màu nền của ô */
+  padding: 20px; /* Khoảng cách bên trong ô */
+  border-radius: 8px; /* Bo góc */
+}
+.grid-item > div{
+  margin:10px;
+}
+.grid-item .content-set{
+  margin-left: 30px;
+  text-align: left;
+}
+.head-set{
+  font-size: 30px; 
+  color: #333;
+  padding-bottom: 20px;
+}
+.content-set{
+  font-size: 20px;
+  line-height: 1.6; /* Độ cao dòng */
+  color: #080808;
+}
+.content-set:hover{
+  background-color: rgb(138, 121, 121);
 }
