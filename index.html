@@ -1,400 +1,85 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="assests/css/reset.css" />
-    <link rel="stylesheet" href="assests/css/style.css" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
-      integrity="sha384-X6d13e5gKALF2DI8z5/jFfkhpk11lK5vdOB67HquyKbSrLp04I0ypSNf/JFF6Ds3"
-      crossorigin="anonymous"
-    />
 
-    <title>Open U</title>
-    <style></style>
-  </head>
-  <body class="scrollbar">
-    <!-- Header -->
-    <header class="header fixed">
-      <div class="content">
-        <div class="body">
-          <!-- Nav -->
-          <nav class="navbar">
-            <ul class="navbar_items">
-              <li class="active nav_home">
-                <a href="#" title="Home"><i class="fas fa-home"></i></a>
-              </li>
-              <li>
-                <a href="#" title="Search"><i class="fas fa-search"></i></a>
-              </li>
-              <li>
-                <a href="#blog" title="Blog" class="nav_edit"><i class="fas fa-edit"></i></a>
-              </li>
-              <li>
-                <a
-                  href="#notification"
-                  title="Notification"
-                  class="nav_noti"
-                  ><i class="fas fa-bell nav_noti_icon"></i>
-                  <span class="badge">12</span></a
-                >
-              </li>
-              <li>
-                <a href="#" title="Message" class="nav_mess"
-                  ><i class="fas fa-envelope"></i>
-                  <span class="badge">3</span></a
-                >
-              </li>
-            </ul>
-            <ul class="navbar_items nav-bottom">
-              <li>
-                <a href="profile.html" title="Profile"><i class="fas fa-user"></i></a>
-              </li>
-              <li>
-                <a href="settings.html" title="Settings"
-                  ><i class="fa-solid fa-gear setting"></i
-                ></a>
-              </li>
-            </ul>
-          </nav>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.5.1/css/all.css">
+
+</head>
+
+<body>
+    <div class="modal">
+        <div class="modal__overlay">
+            <div class="wrapper">
+                <div class="form-wrapper sign-in">
+                    <form action="">
+                        <h2>Login</h2>
+                        <div class="input-group">
+                            <input type="text" required>
+                            <label for="">Username</label>
+                        </div>
+
+                        <div class="input-group">
+                            <input class="password-signin" type="password" required>
+                            <i class="eye-icon-signin fa-solid fa-eye"></i>
+                            <label for="">Password</label>
+                        </div>
+
+                        <div class="remember">
+                            <label for="tick__signin"><input type="checkbox" id="tick__signin"> Remember me</label>
+                        </div>
+
+                        <button type="submit">Login</button>
+
+                        <div class="signUp-link">
+                            <p>Don't have an account?
+                                <a href="#" class="signUpBtn-link">Sign Up</a>
+                            </p>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="form-wrapper sign-up">
+                    <form action="">
+                        <h2>Sign Up</h2>
+                        <div class="input-group">
+                            <input type="text" required>
+                            <label for="">Username</label>
+                        </div>
+
+                        <div class="input-group">
+                            <input type="email" required>
+                            <label for="">Email</label>
+                        </div>
+
+                        <div class="input-group">
+                            <input class="password-signup" type="password" required>
+                            <i class="eye-icon-signup fa-solid fa-eye"></i>
+                            <!-- <i class="fa-solid fa-eye-low-vision"></i> -->
+                            <label for="">Password</label>
+                        </div>
+
+                        <div class="remember">
+                            <label for="tick__signup"><input type="checkbox" id="tick__signup"> I agree to the terms & conditions
+                            </label>
+                        </div>
+
+                        <button type="submit">Sign Up</button>
+
+                        <div class="signIn-link">
+                            <p>Already have an account?
+                                <a href="#" class="signInBtn-link">Sign In</a>
+                            </p>
+                        </div>
+                    </form>
+                </div>
+            </div>
         </div>
-      </div>
-    </header>
-    <!-- Notifications -->
-    <div class="notifications">
-      <!-- Your notifications content goes here -->
     </div>
-    <div class="background"></div>
-    <main class="blog-container">
-      <!-- Blog-home area -->
-      <section class="home-page none">
-        <div class="post-items container">
-          <!-- Item 1 -->
-          <article class="post card-border" id="post-1145">
-            <header class="post-header text-center">
-              <a class="post-title" href="https://goodapple.top/archives/1145"
-                >Post 1</a
-              >
-              <!-- desc post item -->
-              <div class="post-meta">
-                <div class="post-meta-detail post-meta-detail-time">
-                  <i class="fa-sharp fa-regular fa-clock"></i>
-                  <time title=" 2022-4-10 18:02:30 |  2023-2-13 18:07:46"
-                    >2022-4-10 18:02
-                  </time>
-                </div>
-                <div class="post-meta-devide">|</div>
-                <div class="post-meta-detail post-meta-detail-views">
-                  <i class="fa fa-eye" aria-hidden="true"></i> 3,422
-                </div>
-                <br />
-                <div class="post-meta-detail post-meta-detail-words">
-                  <i class="fa-regular fa-file-word"></i><span title=" 785 "> 3523</span>
-                </div>
-                <div class="post-meta-devide">|</div>
-                <div class="post-meta-detail post-meta-detail-words">
-                  <i class="fa fa-hourglass-end" aria-hidden="true"></i>
-                  51
-                </div>
-              </div>
-            </header>
+    <script src="main.js"></script>
+</body>
 
-            <div class="post-content">
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cum
-              tenetur labore ipsam facilis rerum delectus, officiis perspiciatis
-              laborum necessitatibus numquam reprehenderit neque vel dolorem
-              asperiores expedita ducimus sint iusto eum!
-            </div>
-
-            <!-- Icon react -->
-            <div class="post-redirect-btn">
-              <div class="post-tags">
-                <i class="fa fa-tags" aria-hidden="true"></i>
-                <a href="#"  class="tag badge hover">Blog</a>
-              </div>
-              <a class="view-blog hover" href="#">View</a>
-            </div>
-          </article>
-          <!-- Item 2 -->
-          <article class="post card-border" id="post-1145">
-            <header class="post-header text-center">
-              <a class="post-title" href="https://goodapple.top/archives/1145"
-                >Post 2</a
-              >
-              <!-- desc post item -->
-              <div class="post-meta">
-                <div class="post-meta-detail post-meta-detail-time">
-                  <i class="fa-sharp fa-regular fa-clock"></i>
-                  <time title=" 2022-4-10 18:02:30 |  2023-2-13 18:07:46"
-                    >2022-4-10 18:02
-                  </time>
-                </div>
-                <div class="post-meta-devide">|</div>
-                <div class="post-meta-detail post-meta-detail-views">
-                  <i class="fa fa-eye" aria-hidden="true"></i> 3,422
-                </div>
-                <br />
-                <div class="post-meta-detail post-meta-detail-words">
-                  <i class="fa-regular fa-file-word"></i><span title=" 785 "> 3523</span>
-                </div>
-                <div class="post-meta-devide">|</div>
-                <div class="post-meta-detail post-meta-detail-words">
-                  <i class="fa fa-hourglass-end" aria-hidden="true"></i>
-                  51
-                </div>
-              </div>
-            </header>
-
-            <div class="post-content">
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cum
-              tenetur labore ipsam facilis rerum delectus, officiis perspiciatis
-              laborum necessitatibus numquam reprehenderit neque vel dolorem
-              asperiores expedita ducimus sint iusto eum!
-            </div>
-
-            <!-- Icon react -->
-            <div class="post-redirect-btn">
-              <div class="post-tags">
-                <i class="fa fa-tags" aria-hidden="true"></i>
-                <a href="#"  class="tag badge hover">Blog</a>
-              </div>
-              <a class="view-blog hover" href="#">View</a>
-            </div>
-          </article>
-          <!-- Item 3 -->
-          <article class="post card-border" id="post-1145">
-            <header class="post-header text-center">
-              <a class="post-title" href="https://goodapple.top/archives/1145"
-                >Post 3</a
-              >
-              <!-- desc post item -->
-              <div class="post-meta">
-                <div class="post-meta-detail post-meta-detail-time">
-                  <i class="fa-sharp fa-regular fa-clock"></i>
-                  <time title=" 2022-4-10 18:02:30 |  2023-2-13 18:07:46"
-                    >2022-4-10 18:02
-                  </time>
-                </div>
-                <div class="post-meta-devide">|</div>
-                <div class="post-meta-detail post-meta-detail-views">
-                  <i class="fa fa-eye" aria-hidden="true"></i> 3,422
-                </div>
-                <br />
-                <div class="post-meta-detail post-meta-detail-words">
-                  <i class="fa-regular fa-file-word"></i><span title=" 785 "> 3523</span>
-                </div>
-                <div class="post-meta-devide">|</div>
-                <div class="post-meta-detail post-meta-detail-words">
-                  <i class="fa fa-hourglass-end" aria-hidden="true"></i>
-                  51
-                </div>
-              </div>
-            </header>
-
-            <div class="post-content">
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cum
-              tenetur labore ipsam facilis rerum delectus, officiis perspiciatis
-              laborum necessitatibus numquam reprehenderit neque vel dolorem
-              asperiores expedita ducimus sint iusto eum!
-            </div>
-
-            <!-- Icon react -->
-            <div class="post-redirect-btn">
-              <div class="post-tags">
-                <i class="fa fa-tags" aria-hidden="true"></i>
-                <a href="#"  class="tag badge hover">Blog</a>
-              </div>
-              <a class="view-blog hover" href="#">View</a>
-            </div>
-          </article>
-          <!-- Item 4 -->
-          <article class="post card-border" id="post-1145">
-            <header class="post-header text-center">
-              <a class="post-title" href="https://goodapple.top/archives/1145"
-                >Post 4</a
-              >
-              <!-- desc post item -->
-              <div class="post-meta">
-                <div class="post-meta-detail post-meta-detail-time">
-                  <i class="fa-sharp fa-regular fa-clock"></i>
-                  <time title=" 2022-4-10 18:02:30 |  2023-2-13 18:07:46"
-                    >2022-4-10 18:02
-                  </time>
-                </div>
-                <div class="post-meta-devide">|</div>
-                <div class="post-meta-detail post-meta-detail-views">
-                  <i class="fa fa-eye" aria-hidden="true"></i> 3,422
-                </div>
-                <br />
-                <div class="post-meta-detail post-meta-detail-words">
-                  <i class="fa-regular fa-file-word"></i><span title=" 785 "> 3523</span>
-                </div>
-                <div class="post-meta-devide">|</div>
-                <div class="post-meta-detail post-meta-detail-words">
-                  <i class="fa fa-hourglass-end" aria-hidden="true"></i>
-                  51
-                </div>
-              </div>
-            </header>
-
-            <div class="post-content">
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cum
-              tenetur labore ipsam facilis rerum delectus, officiis perspiciatis
-              laborum necessitatibus numquam reprehenderit neque vel dolorem
-              asperiores expedita ducimus sint iusto eum!
-            </div>
-
-            <!-- Icon react -->
-            <div class="post-redirect-btn">
-              <div class="post-tags">
-                <i class="fa fa-tags" aria-hidden="true"></i>
-                <a href="#"  class="tag badge hover">Blog</a>
-              </div>
-              <a class="view-blog hover" href="#">View</a>
-            </div>
-          </article>
-        </div>
-      </section>
-      <!-- Blog-create -->
-      <section class="blog-page">
-        <div class="create-blog-container container">
-          <!-- Item 1 -->
-          <div class="create-blog card-border">
-            <header class="create-post-header text-center">
-              <a class="create-post-title" href="https://goodapple.top/archives/1145"
-                >Create your own post</a
-              >
-            </header>
-
-            <textarea class="create-content">
-              
-            </textarea>
-
-            <!-- Icon react -->
-            <div class="post-redirect-btn">
-              <div class="post-tags">
-                <a href="#"  class="tag add-tag-badge hover">Add tag <i class="fa fa-tags" aria-hidden="true"></i></a>
-
-                
-                <a href="#"  class="tag badge hover">Create</a>
-              </div>
-              <a class="view-blog hover" href="#">View</a>
-            </div>
-          </div>
-        </div>
-      </section>
-        
-      <!-- Profile -->
-      <section>
-        <aside class="blog-user-info">
-          <div class="right-side1">
-            <div class="rs-desc-pro">
-              <div class="rs-banner">
-                <span>OpenU Blog</span>
-              </div>
-              <span class="rs1-desc"
-                >Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                Commodi excepturi accusanti</span
-              >
-            </div>
-            <div class="rs-search">
-              <label for="search-val"
-                ><i class="menu-item-icon fa fa-search mr-0"></i
-              ></label>
-              <input
-                class="input-search"
-                type="text"
-                id="search-val"
-                name="search-val"
-                placeholder="Search here"
-              /><br />
-            </div>
-          </div>
-          <div class="right-side-2">
-            <div class="rs2-container">
-              <div>
-                <div class="rs2-nav">
-                  <p class="nav-underline">Info</p>
-                  <p>Desc</p>
-                </ul>
-              </div>
-              <div class="rs2-profile">
-                <div class="rs2-pro-img"></div>
-                <div class="rs2-pro-name">Thinh Dang</div>
-                <!-- List info -->
-                <div class="rs2-info-list">
-                  <p class="rs2-pro-role">Role
-                    Admin</p>
-                  <p class="rs2-pr-age">Age
-                    20</p>
-                  <p class="rs2-pr-job">Job
-                    Stu</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </aside>
-        <!-- Notification -->
-        <aside class="notification none">
-          <div class="noti-container">
-            <div class="noti-header">
-              <div class="noti-banner">
-                <span>Notification</span>
-              </div>
-              <span class="noti-desc"
-                >Let's check out what's new</span
-              >
-            </div>
-            <div class="noti-items">
-              <!-- noti1 -->
-              <div class="noti-item">
-                <div class="noti-ava">
-                </div>
-                <div class="noti-content"> Lorem ipsum dolor sit amet consectetur, djklsajdlasjdlksajdlsa.</div>
-              </div>
-              <hr>
-              <!-- noti2 -->
-              <div class="noti-item">
-                <div class="noti-ava">
-                </div>
-                <div class="noti-content"> Lorem ipsum dolor sit amet consectetur, djklsajdlasjdlksajdlsa.</div>
-              </div>
-              <hr>
-              <!-- noti3 -->
-              <div class="noti-item">
-                <div class="noti-ava">
-                </div>
-                <div class="noti-content"> Lorem ipsum dolor sit amet consectetur, djklsajdlasjdlksajdlsa.</div>
-              </div>
-              <hr>
-              <!-- noti4 -->
-              <div class="noti-item">
-                <div class="noti-ava">
-                </div>
-                <div class="noti-content"> Lorem ipsum dolor sit amet consectetur, djklsajdlasjdlksajdlsa.</div>
-              </div>
-            </div>
-          </div>
-        </aside>
-      </section>
-    </main>
-
-    <!-- Font Awesome Icons (You can include this from a CDN) -->
-    <script
-      src="https://kit.fontawesome.com/c9f23d41c7.js"
-      crossorigin="anonymous"
-    ></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/js/all.min.js"></script>
-    <script src="./assests/js/index.js"></script>
-
-    <script>
-      function toggleNotifications() {
-        const notifications = document.querySelector(".notifications");
-        notifications.style.display =
-          notifications.style.display === "block" ? "none" : "block";
-      }
-    </script>
-  </body>
 </html>
