@@ -1,0 +1,347 @@
+/* Reset default style */
+* {
+    box-sizing: border-box; 
+ }
+ 
+ :root {
+   --font-heading: Sen, sans-serif;
+   --main-color: #ffb900;
+   --line-clamp: 1;
+ }
+ 
+ body {
+  height: 100vh;
+  width: 100%;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 0;
+   /* background: rgb(168, 211, 255);
+   background: linear-gradient(
+     155deg,
+     rgba(168, 211, 255, 1) 100%,
+     rgba(111, 183, 255, 1) 45%,
+     rgba(46, 128, 206, 1) 0% );*/
+  background-color: black;
+   /* display: flex;  */
+   /* justify-content: space-between; */
+ }
+ 
+ /* Navbar */
+ 
+ .navbar {
+   height: 100vh;
+   width: 200px;
+   position: fixed;
+   top: 0;
+   left: 0;
+   background-color: black;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   padding: 20px 0;
+   border-right: 3px solid #999999;
+   text-align: left;
+   position: fixed;
+ }
+ 
+ .navbar a {
+   color: #fff;
+   text-decoration: none;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   margin-bottom: 10px;
+   padding: 25px;
+   transition: background-color 0.3s ease;
+   border-radius: 10px;
+ }
+ 
+ .navbar a:hover {
+   background-color: #fff;
+   color: black;
+   border-color: #2e80ce;
+   transform: translateY(-8px);
+   border-radius: 10px;
+   box-shadow: 3px 3px rgba(0, 0, 0, 0.5);
+ }
+ 
+ .navbar i {
+   font-size: 24px;
+   margin-bottom: 0;
+ }
+ #header .web-name{
+  color: #fff;
+  font-size: 30px;
+  font-weight: 50px;
+  margin-top: 10px;
+  padding-bottom: 30px;
+  font-family: 'Dancing Script', cursive;
+
+ }
+ .navbar .setting {
+   font-size: 18px;
+ }
+ 
+ .navbar .nav-bottom {
+   margin-top: calc(100vh - 430px - (66px * 3));
+ }
+ 
+ .navbar_items{
+   width: 100%;
+ }
+ .narbar .navbar_items_home{
+  
+
+ }
+ .navbar_items .nav_noti,
+ .nav_mess {
+   position: relative;
+ }
+ 
+ .navbar_items .badge {
+   color: #fff;
+   background: red;
+   position: absolute;
+   font-size: 12px;
+   top: 17px;
+   right: 21px;
+   border-radius: 50%;
+   padding: 2px 4px;
+   line-height: 1;
+   margin-right: 55px;
+ }
+ 
+ .navbar_items .nav_mess .badge {
+   top: 17px;
+   right: 25px;
+ }
+ 
+ /* Responsive Design */
+ @media (max-width: 768px) {
+   .navbar {
+     flex-direction: row;
+     height: auto;
+     width: 100%;
+     position: static;
+     padding: 10px;
+     justify-content: space-around;
+   }
+ 
+   .navbar a {
+     margin-bottom: 0;
+   }
+ 
+   .notifications {
+     width: 100%;
+     position: static;
+     margin-top: 20px;
+   }
+ }
+ 
+ /* Post blog */
+ #blog-container{
+  margin-left: 200px !important;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  position: relative;
+  z-index: 0;
+  flex-wrap: wrap;  
+  /* 1c1e21 */
+ }
+
+ #blog-container .notification-container{
+    margin-top: 30px;
+    height: 100vh;
+    width: 60%;
+    background-color: rgba(45, 45, 45, 0.5);
+    color: #fff;
+    border: 2px solid #fff;
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    border-bottom: none;
+ }
+
+ .notification-name{
+    color: #fff;
+    font-size: 30px;
+    text-align: left;
+    /* margin-top: 10px;
+    margin-left: 10px; */
+    line-height: 60px;
+    margin-left: 15px;
+ }
+ .notification-session{
+    font-size: 20px;
+    /* margin-top: 10px;
+    margin-left: 10px; */
+    display: flex;
+    line-height: 20px;
+    margin-left: 20px;
+    margin-right: 15px;
+ }
+ .notification-session .notification-session-all{
+    display: inline-flex;
+    border: 0.5px solid #999;
+    border-radius: 8px;
+    box-sizing: border-box;
+    justify-content: center;
+    background-color: #fff;
+    color: #000;
+    height: 34px;
+    width: 100px;
+    line-height: 34px;
+ }
+
+ .notification-session .notification-session-new{
+    display: inline-flex;
+    justify-content: center;
+    color: #fff;
+    height: 34px;
+    width: 100px;
+    margin-left: 10px;
+    line-height: 34px;
+    border: 0.5px solid #999;
+    border-radius: 8px;
+    box-sizing: border-box;
+    justify-content: center;
+ }
+
+.notification-content{
+    margin-top: 30px;
+    margin-left: 15px;
+    display: flex;
+}
+
+.notification-content .notification-user-image{
+  position: relative;
+}
+
+.notification-content .notification-user-image img{
+  border-radius: 50%;
+  width: 55px;
+}
+
+.notification-content .notification-badge-user{
+  color: #fff;
+  width: 23px;
+  height: 23px;
+  position: absolute;
+  background: #9360f7;
+  font-size: 10px;
+  top: 35px;
+  left: 40px;
+  border-radius: 50%;
+  padding: 2px 4px;
+  line-height: 23px;
+  margin-right: 55px;
+  text-align: center;
+}
+
+.notification-content .notification-badge-star{
+  color: #fff;
+  width: 23px;
+  height: 23px;
+  position: absolute;
+  background: #0866ff;
+  font-size: 10px;
+  top: 35px;
+  left: 40px;
+  border-radius: 50%;
+  padding: 2px 4px;
+  line-height: 23px;
+  margin-right: 55px;
+  text-align: center;
+}
+
+.notification-content .notification-badge-comment{
+  color: #fff;
+  width: 23px;
+  height: 23px;
+  position: absolute;
+  background: #00ee96;
+  font-size: 10px;
+  top: 35px;
+  left: 40px;
+  border-radius: 50%;
+  padding: 2px 4px;
+  line-height: 23px;
+  margin-right: 55px;
+  text-align: center;
+}
+
+.notification-content .notification-badge-heart{
+  color: #fff;
+  width: 23px;
+  height: 23px;
+  position: absolute;
+  background: #f3425f;
+  font-size: 10px;
+  top: 35px;
+  left: 40px;
+  border-radius: 50%;
+  padding: 2px 4px;
+  line-height: 23px;
+  margin-right: 55px;
+  text-align: center;
+
+}
+
+.notification-content-details .notification-content-old{
+  color: #999;
+
+}
+
+
+
+.notification-content .notification-user-image .badge {
+  top: 17px;
+  right: 25px;
+}
+
+.notification-content-details{
+    width: 90%;
+    margin-left: 10px;
+    font-size: 20px;
+    border-bottom: 0.5px solid #999;
+    margin-bottom: -10px;
+    cursor: pointer;
+}
+
+.notification-content-details .notification-details{
+    margin-top: 10px;
+    color: #999999;
+}
+
+.notification-username {
+    display: flex;
+    color:#fff ;
+
+}
+
+.notification-username-details, .notification-details a{
+  color:#fff;
+}
+
+
+.notification-time{
+    color: #999999;
+    margin-left: 10px;
+    
+}
+
+
+ 
+
+
+ 
+
+ 
+
+
+ 
+
+
+ 
