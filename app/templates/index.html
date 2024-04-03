@@ -5,12 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../assests/css/reset.css" />
     <link rel="stylesheet" href="../assests/css/style.css" />
+    <link rel="stylesheet" href="../assests/css/responsive-style.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
       integrity="sha384-X6d13e5gKALF2DI8z5/jFfkhpk11lK5vdOB67HquyKbSrLp04I0ypSNf/JFF6Ds3"
       crossorigin="anonymous"
     />
+    <link href='https://fonts.googleapis.com/css?family=Lily Script One' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
 
     <title>Open U</title>
     <style></style>
@@ -18,10 +22,14 @@
   <body class="scrollbar">
     <!-- Header -->
     <header class="header fixed">
+
       <div class="content">
+        <div class="name-web">
+          <h1 class="name-web-details">OpenU</h1>
+        </div>
         <div class="body">
           <!-- Nav -->
-          <nav class="navbar">
+          <nav id="mobile-navbar" class="navbar">
             <ul class="navbar_items">
               <li class="active nav_home">
                 <a href="{{ url_for('home')}}" title="Home"><i class="fas fa-home"></i></a>
@@ -30,7 +38,7 @@
                 <a href="#" onclick="focusInput()" title="Search"><i class="fas fa-search"></i></a>
               </li>
               <li>
-                <a href="#blog" title="Blog" class="nav_edit"><i class="fas fa-edit"></i></a>
+                <a href="#blog" title="Blog" id="nav-post" class="nav_edit"><i class="fas fa-edit"></i></a>
               </li>
               <li>
                 <a
@@ -48,19 +56,26 @@
                 >
               </li>
             </ul>
-            <ul class="navbar_items nav-bottom">
-              <li>
-                <a href="{{ url_for('profile')}}" title="Profile"><i class="fas fa-user"></i></a>
-              </li>
-              <li>
-                <a href="{{ url_for('settings') }}" title="Settings"><i class="fa-solid fa-gear setting"></i
-                ></a>
-              </li>
-              <li>
-                <a href="{{ url_for('logout') }}" title="Logout"><i class="fa-solid fa-right-from-bracket" style="font-size:18px"></i></i
-                ></a>
-              </li>
-            </ul>
+            <div class="navbar_items_v2 navbar-bottom">
+              <div class="nav-bottom">
+                <div id="mobile-menu" class="nav_menu">
+                  <i class="fas fa-bars"></i>
+                </div>
+                <ul class="nav-menu-items">
+                  <li>
+                    <a href="{{ url_for('profile')}}" title="Profile"><i class="fas fa-user"></i></a>
+                  </li>
+                  <li>
+                    <a href="{{ url_for('settings') }}" title="Settings"><i class="fa-solid fa-gear setting"></i
+                    ></a>
+                  </li>
+                  <li>
+                    <a href="{{ url_for('logout') }}" title="Logout"><i class="fa-solid fa-right-from-bracket" style="font-size:18px"></i></i
+                    ></a>
+                  </li>
+                </ul>
+              </div>
+            </div>
           </nav>
         </div>
       </div>
@@ -70,9 +85,37 @@
       <!-- Your notifications content goes here -->
     </div>
     <div class="background"></div>
+    <div class="mobile-section1 none">
+      <aside class="mobile-blog-user-info">
+        <div class="right-side1">
+          <div class="rs-desc-pro">
+            <div class="rs-banner">
+              <span>OpenU Blog</span>
+            </div>
+            <span class="rs1-desc"
+              >Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+              Commodi excepturi accusanti</span
+            >
+          </div>
+          <div class="rs-search">
+            <label for="search-val"
+              ><i class="menu-item-icon fa fa-search mr-0"></i
+            ></label>
+            <input
+              class="input-search"
+              onclick="focusInput()"
+              type="text"
+              id="search-val"
+              name="search-val"
+              placeholder="Search here"
+            /><br />
+          </div>
+        </div>
+      </aside>
+    </div>
     <main class="blog-container">
       <!-- Blog-home area -->
-      <section class="home-page ">
+      <section class="home-page">
         <div class="post-items container">
           <main class="">
             <!-- Blog-home area -->
@@ -126,11 +169,14 @@
 
 
       <!-- Blog-create -->
-      <section class="blog-page none">
-        <div class="create-blog-container container">
+      <section id="mobile-post" class="blog-page none">
+        <div class="create-blog-container container-v2">
           <!-- Item 1 -->
           <div class="create-blog card-border">
             <header class="create-post-header text-center">
+              <div class="mobile-post-close none">
+                <button onclick="closePost()" type="button">Close</button>
+              </div>
               <a class="create-post-title" href="https://goodapple.top/archives/1145"
                 >Create your own post</a
               >
@@ -152,7 +198,7 @@
             </textarea>
           
             <!-- Icon react -->
-            <div class="post-redirect-btn">
+            <div class="post-redirect-btn-v2">
               <div class="post-tags">
                 <a href="#"  class="tag add-tag-badge hover">Add tag <i class="fa fa-tags" aria-hidden="true"></i></a>
               
@@ -169,7 +215,7 @@
 
         
       <!-- Profile -->
-      <section>
+      <section class="section-profile">
         <aside class="blog-user-info">
           <div class="right-side1">
             <div class="rs-desc-pro">
@@ -220,10 +266,13 @@
           </div>
         </aside>
         <!-- Notification -->
-        <aside class="notification none">
+        <aside id="mobile-noti" class="notification none">
           <div class="noti-container">
             <div class="noti-header">
               <div class="noti-banner">
+                <div class="mobile-post-close none">
+                  <button onclick="closeNotification()" type="button">Close</button>
+                </div>
                 <span>Notification</span>
               </div>
               <span class="noti-desc"
@@ -271,12 +320,43 @@
     ></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/js/all.min.js"></script>
     <script src="./../assests/js/index.js"></script>
+    <script src="../assests/js/responsive-mobile.js"></script>
 
     <script>
       function toggleNotifications() {
         const notifications = document.querySelector(".notifications");
         notifications.style.display =
           notifications.style.display === "block" ? "none" : "block";
+      }
+    </script>
+    <script>
+      var navbar = document.getElementById('mobile-navbar');
+      var moblieMenu = document.getElementById('mobile-menu');
+      moblieMenu.onclick = function(){
+        var isClosed = navbar.style.overflow === 'hidden';
+        if (isClosed){
+          navbar.style.overflow = 'initial';
+        } else{
+          navbar.style.overflow = 'hidden';
+        }
+      }
+    </script>
+    <script>
+      function closePost() {
+        var post = document.getElementById('mobile-post');
+        var isOpened = post.style.display !== 'none';
+        if (isOpened){
+          post.style.display = 'none';
+        }
+      }
+    </script>
+    <script>
+      function closeNotification() {
+        var noti = document.getElementById('mobile-noti');
+        var isOpened = noti.style.display !== 'none';
+        if (isOpened){
+          noti.style.display = 'none';
+        }
       }
     </script>
   </body>
