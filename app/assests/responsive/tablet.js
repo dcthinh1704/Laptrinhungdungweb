@@ -24,6 +24,14 @@ if (mediaQuery.matches) {
         blog_noti.classList.add("none")
     }
 
+    if(!document.querySelector(".notification").classList.contains("none")) {
+        document.querySelector(".notification").classList.add("none")
+    }
+
+    if(!document.querySelector(".blog-user-info").classList.contains("none")) {
+        document.querySelector(".blog-user-info").classList.add("none")
+    }
+
     noti_icon.addEventListener("click", function() {
         console.log(noti_icon)
         console.log(blog_page)
@@ -42,9 +50,15 @@ if (mediaQuery.matches) {
             if(document.querySelector(".notification").classList.contains("none")) {
                 document.querySelector(".notification").classList.remove("none")
             }
+            if(!document.querySelector(".blog-user-info").classList.contains("none")) {
+                document.querySelector(".blog-user-info").classList.add("none")
+            }
         } else {
             if(document.querySelector(".notification").classList.contains("none")) {
                 document.querySelector(".notification").classList.remove("none")
+            }
+            if(!document.querySelector(".blog-user-info").classList.contains("none")) {
+                document.querySelector(".blog-user-info").classList.add("none")
             }
         }
     })
@@ -61,6 +75,9 @@ if (mediaQuery.matches) {
             if(!document.querySelector(".notification").classList.contains("none")) {
                 document.querySelector(".notification").classList.add("none")
             }
+            if(!document.querySelector(".blog-user-info").classList.contains("none")) {
+                document.querySelector(".blog-user-info").classList.add("none")
+            }
         } else {
             if(!blog_noti.classList.contains("none")) {
                 blog_noti.classList.add("none")
@@ -70,6 +87,39 @@ if (mediaQuery.matches) {
             }
             if(!document.querySelector(".notification").classList.contains("none")) {
                 document.querySelector(".notification").classList.add("none")
+            }
+            if(!document.querySelector(".blog-user-info").classList.contains("none")) {
+                document.querySelector(".blog-user-info").classList.add("none")
+            }
+        }
+    })
+
+    // Search 
+    var blogSearch = document.querySelector(".blog-user-info")
+    var btnSearch = document.querySelector(".btn-search")
+    btnSearch.addEventListener("click", function() {
+        console.log(blogSearch)
+        if(blog_noti.classList.contains("none")) {
+            blog_noti.classList.remove("none")
+            if(blogSearch.classList.contains("none")) {
+                blogSearch.classList.remove("none")
+            }
+            if(!blog_page.classList.contains("none")) {
+                blog_page.classList.add("none")
+            }
+            if(!document.querySelector(".notification").classList.contains("none")) {
+                document.querySelector(".notification").classList.add("none")
+            }
+            if(!home_page.classList.contains("none")) {
+                home_page.classList.add("none")
+            }
+        }
+        else {
+            if(!document.querySelector(".notification").classList.contains("none")) {
+                document.querySelector(".notification").classList.add("none")
+            }
+            if(blogSearch.classList.contains("none")) {
+                blogSearch.classList.remove("none")
             }
         }
     })
