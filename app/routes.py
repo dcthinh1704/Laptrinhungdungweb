@@ -1,11 +1,14 @@
-from flask import render_template, url_for, flash, redirect, request, send_file, send_from_directory, session
-from app import app
+from flask import render_template, url_for, flash, redirect, request, send_file, send_from_directory, session, jsonify
+from app import app, socket
 import os
 import sqlite3  
 import bcrypt
 import uuid
 from werkzeug.utils import secure_filename
+import re
+from urllib.parse import unquote, quote
 #Import required library      
+
 
 
 
@@ -14,9 +17,15 @@ from werkzeug.utils import secure_filename
 curr_dir = os.path.dirname(os.path.abspath(__file__))
 print(curr_dir)
 
-def is_valid_random_string(random_string):
-    # Check if the random string matches the expected format (you can adjust this based on your requirements)
-    return len(random_string) == 32 and all(c in '0123456789abcdef' for c in random_string)
+#def is_valid_random_string(random_string):
+#    # Check if the random string matches the expected format (you can adjust this based on your requirements)
+#    return len(random_string) == 32 and all(c in '0123456789abcdef' for c in random_string)
+
+#def generate_randString(length):
+#    characters = string.ascii_letters + string.digits
+#    return ''.join(random.choice(characters) for _ in range(length))
+
+
 
 
 # Checks file extension
@@ -121,8 +130,10 @@ def home():
         if id:        
             blog_info = cursor.execute("SELECT title, content FROM blogPosts WHERE publish = 1 ORDER BY RANDOM() LIMIT 5").fetchall()
 
+            user_info = cursor.execute("SELECT username FROM user WHERE id = ?", (id,)).fetchone()
             #print(blog_info)
-            return render_template('index.html', blog_info=blog_info)
+
+            return render_template('index.html', blog_info=blog_info,user_info = user_info)
         return redirect('/login')
     else:
         return redirect('/login')
@@ -323,24 +334,191 @@ def published():
 
     except Exception as error:
         print(f"ERROR: {error}", flush=True)
-        return "You broke the server :(", 400
-    
-
+        return "You broke the server :(", 400\
+        
+#-----------------------------------------------------------------------------------------------   
+#-------------------------------- Will look later -----------------------------------------------
 # Routes to render out each individual blog when press on the title of a blog
-@app.route('/blog/<int:blog_id><string:random_string>')
-def view_blog(blog_id, random_string):
-    # Validate the random string to ensure it matches the expected format
-    if not is_valid_random_string(random_string):
-        return render_template('error.html', message='Invalid URL'), 400
 
+@app.route('/blog/<string:blog_title>')
+def view_blog(blog_title):
+    #Url parse title name
+    decode_title = unquote(blog_title)
+    print(decode_title)
+    
+    #Connect to database
     cursor, conn = getDB()
 
     # Fetch the blog post from the database based on the provided blog_id
-    blog_post = cursor.execute("SELECT title, content FROM blogPosts WHERE id = ?", (blog_id,)).fetchone()
+    blog_post = cursor.execute("SELECT title, content FROM blogPosts WHERE title = ?", (decode_title,)).fetchone()
+    print(blog_post)
 
     # Check if the blog post exists
     if blog_post:
-        return "hello"
+        title, content = blog_post
+        return render_template('blog.html', title=title, content=content)
     else:
         # If the blog post does not exist, render an error page or redirect to another page
-        return "lmao", 404
+        return redirect(url_for('home'))
+
+#-----------------------------------------------------------------------------------------------   
+#-----------------------------------------------------------------------------------------------   
+
+
+# Routes for generating new chat by searching for users
+from flask import jsonify
+
+@app.route('/new_chat', methods=["POST"])
+def new_chat():
+    id = session.get('id')
+    cursor, conn = getDB()
+    
+    # Check if id exists in the database
+    if not id:        
+        return redirect(url_for('login'))  # Redirect to login page if the user's id doesn't exist
+    
+    try:
+        if request.method == "POST":
+            if 'search_input' in request.form:
+                search_input = request.form['search_input']
+                # Check if the input matches the format of an email address
+                if re.match(r'^[\w\.-]+@[\w\.-]+$', search_input):
+                    # Search for the user in the database based on the provided email address
+                    recipient_info = cursor.execute("SELECT id, username, emailAddr FROM user WHERE emailAddr = ?", (search_input,)).fetchone()
+                else:
+                    # Search for the user in the database based on the provided username
+                    recipient_info = cursor.execute("SELECT id, username, emailAddr FROM user WHERE username = ?", (search_input,)).fetchone()
+                    
+                if recipient_info:
+                    recipient_id, recipient_username, recipient_email = recipient_info
+                    # Check if a chat already exists between the current user and the recipient
+                    chat_exists = cursor.execute("SELECT id FROM chat WHERE (userID1 = ? AND userID2 = ?) OR (userID1 = ? AND userID2 = ?)", (id, recipient_id, recipient_id, id)).fetchone()
+                    if chat_exists:
+                        return jsonify({'error': 'Chat already exists'}), 400
+                    else:
+                        # Proceed with creating a new chat
+                        # First, insert the new chat into the database
+                        
+                        chat_id = str(uuid.uuid4())
+
+                        cursor.execute("INSERT INTO chat (id, userID1, userID2) VALUES (?, ?, ?)", (chat_id, id, recipient_id))
+                        conn.commit()
+                        # Retrieve the chat ID of the newly created chat
+                        new_chat_id = cursor.lastrowid
+
+                        
+                        # Create room id equal to message id to make eassier query nd understanding
+                        chat_roomID = chat_id
+                        cursor.execute("INSERT INTO messages (room_id) VALUES (?)", (chat_roomID,))
+                        conn.commit()
+
+
+                        return jsonify({'success': 'New chat created successfully', 'chat_id': new_chat_id}), 200
+                else:
+                    return jsonify({'error': 'User not found'}), 404
+
+    except Exception as error:
+        print(f"ERROR: {error}", flush=True)
+        return "Internal Server Error", 500
+
+# Routes for testing adding new chat (sẽ bỏ đi khi UI xong để sử dụng chức năng tìm kiếm trong route chat chính)
+@app.route('/new_chat_form', methods=["GET", "POST"])
+def new_chat_form():
+    return render_template('test_chatHTML.html')
+
+
+# Routes for chat (tất cả việc chat hay render list chat và tìm kiếm người dùng ở đây)
+@app.route('/chat/', methods=["GET", "POST"])
+def allChat():
+    id = session.get('id')
+    cursor, conn = getDB()
+    
+    # Check if id exists in the database
+    if not id:        
+        return redirect(url_for('login'))  # Redirect to login page if the user's id doesn't exist
+
+
+    try:
+        # Get the room ID for when user press into one will render it out
+        room_id = request.args.get("rid", None)
+
+        # Query all the chat using the current user ID to render out on the page
+        chat_list = cursor.execute("SELECT id, userID1, userID2 FROM chat WHERE userID1 = ? or userID2 = ?", (id,id)).fetchall()
+        print(chat_list)
+        data = []
+        messages=[]
+        queryname = cursor.execute(f"SELECT id,username from user where id = ?",(id,)).fetchone()
+        myid,ownname = queryname
+        if chat_list:
+            for chat in chat_list:
+                chat_roomID, userID1, userID2 = chat
+                try:
+                    # Get all the message
+                    messages_th = cursor.execute("SELECT id, content, timestamp, sender_id, sender_username, room_id FROM chat_messages WHERE room_id = ?", (chat_roomID,)).fetchall()
+
+                    # Get the last messages to render out on the chat list(giống hiện tin nhắn gần nhất của mess)
+                    latest_message = cursor.execute("SELECT id, content, timestamp, sender_id, sender_username, room_id FROM chat_messages WHERE room_id = ? ORDER BY timestamp DESC LIMIT 1", (chat_roomID,)).fetchone()
+                    #---------------------------------------------------------------------
+                    if userID1 == id:
+                        friend = cursor.execute(f"SELECT username from user where id = ?",(userID2,)).fetchone()
+                    else:
+                        friend = cursor.execute(f"SELECT username from user where id = ?",(userID1,)).fetchone()
+                    if room_id == chat_roomID:
+                        for message in messages_th:
+                            var1, var2, var3, var4,var5,var6 = message
+                            messages.append({
+                                "content":var2,
+                                "timestamp":var3,
+                                "sender_username": var5,
+                            }
+                            )
+                        
+
+                except (AttributeError, IndexError):
+                    # Set variable to this when no messages have been sent to the room
+                    latest_message = "This place is empty. No messages ..."          
+                    
+                # Add the query to data
+                data.append({
+                    "username": friend,
+                    "room_id": chat_roomID,
+                    "last_message": latest_message,
+                })
+
+        else:
+            chat_list = None
+        messages = messages if room_id else []
+
+        # messages = cursor.execute("SELECT id, content, timestamp, sender_id, sender_username, room_id FROM chat_messages WHERE room_id = ?", (chat_roomID,)).fetchall()
+        if chat_list == None:
+            return render_template('chatbox-code.html', room_id=room_id, data=data,messages=messages,ownname=ownname, myid=myid)  
+        else:
+            return render_template('chatbox-code.html', room_id=room_id, data=data,messages=messages,ownname=ownname, myid=myid)
+        
+        
+    except Exception as error:
+        print(f"ERROR: {error}", flush=True)
+        return "Internal Server Error", 500
+from datetime import datetime
+
+@app.template_filter("ftime")
+def ftime(date):
+    # Kiểm tra nếu date là một chuỗi
+    if isinstance(date, str):
+        return date  # Trả về chuỗi nguyên thủy nếu không thể chuyển đổi
+
+    # Chuyển đổi thành số nguyên nếu có thể
+    try:
+        dt = datetime.fromtimestamp(int(date))
+    except ValueError:
+        return str(date)  # Nếu không thể chuyển đổi thì change thành str
+
+    time_format = "%I:%M %p"  # Use  %I for 12-hour clock format and %p for AM/PM
+    formatted_time = dt.strftime(time_format)
+
+    formatted_time += " | " + dt.strftime("%m/%d")
+    return formatted_time
+
+
+
+

@@ -5,16 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../assests/css/reset.css" />
     <link rel="stylesheet" href="../assests/css/style.css" />
-    <link rel="stylesheet" href="../assests/responsive/tablet.css">
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
       integrity="sha384-X6d13e5gKALF2DI8z5/jFfkhpk11lK5vdOB67HquyKbSrLp04I0ypSNf/JFF6Ds3"
       crossorigin="anonymous"
     />
+    
 
     <title>Open U</title>
     <style></style>
+    <link rel="stylesheet" href="../assests/responsive/tablet.css">
   </head>
   <body class="scrollbar">
     <!-- Header -->
@@ -43,7 +44,7 @@
                 >
               </li>
               <li>
-                <a href="#" title="Message" class="nav_mess"
+                <a href="/chat" title="Message" class="nav_mess"
                   ><i class="fas fa-envelope"></i>
                   <span class="badge">3</span></a
                 >
@@ -61,7 +62,7 @@
                     ></a>
                   </li>
                   <li>
-                    <a href="{{ url_for('logout') }}" title="Logout"><i class="fa-solid fa-right-from-bracket logout"></i></i
+                    <a href="{{ url_for('logout') }}" title="Logout"><i class="fa-solid fa-right-from-bracket logout" style="font-size:18px"></i></i
                     ></a>
                   </li>
                 </ul> 
@@ -87,7 +88,7 @@
                     {% for title, content in blog_info %}
                     <article class="post card-border" id="post-{{ loop.index }}">
                         <header class="post-header text-center">
-                            <a class="post-title" href="#">{{ title }}</a>
+                            <a class="post-title" href="/blog/{{ title|urlencode }}">{{ title }}</a>
                             <!-- desc post item -->
                             <div class="post-meta">
                         <div class="post-meta-detail post-meta-detail-time">
@@ -145,7 +146,12 @@
           
               <label for="title">Title</label>
 
-              <input class="title-blog" type="text" id="blog-title">
+              <input class="title-blog" type="text" id="blog-title" style="display: block;
+              padding: 5px 10px 5px 5px;
+              margin-bottom: 10px;
+              width: 284px;
+              height: 37px;
+              line-height: 1.3;">
             </div>
             <span class="content" style="color: #39ac91;font-size: 25px;display: inline-block;margin-bottom:20px">Content</span>
             <textarea class="create-content">
@@ -206,7 +212,7 @@
               </div>
               <div class="rs2-profile">
                 <div class="rs2-pro-img"></div>
-                <div class="rs2-pro-name">Thinh Dang</div>
+                <div class="rs2-pro-name">{{user_info[0]}}</div>
                 <!-- List info -->
                 <div class="rs2-info-list">
                   <p class="rs2-pro-role">Role

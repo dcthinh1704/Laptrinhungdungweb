@@ -293,7 +293,7 @@
     }
 
     .navbar .logout {
-        font-size: 30px;
+        font-size: 30px !important;
     }
 
     .navbar .setting {
@@ -357,6 +357,10 @@
 
     .create-post .post-tags a{
         margin-right: 15px;
+    }
+
+    .post-content {
+        overflow: hidden;
     }
 
     /* Notification */
@@ -550,4 +554,76 @@
         font-size: 16px;
     }
 
+
+    /* Chat box */
+    .chat-header{
+        display: none;
+    }
+
+    .chat-container{
+        min-width: 0;
+        width: auto;
+        padding: 0;
+        margin-left: 0;
+        height: 100%;
+    }
+
+    .chat-messing {
+        margin-top: 100px;
+        display: flex;
+    }
+
+    .inbox-mess .mess{
+        height: 924px;
+    }
+
+    .inbox-mess .inbox-peo{
+        width: 30%;
+    }
+
+    .inbox-peo .inbox-recent {
+        display: none;
+    }
+
+    .inbox-search-wrap > label {
+        display: none;
+    }
+
+    .inbox-peo-header {
+        height: 100px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    #new_chat_btn {
+        top: 5px;
+        right: 5px;
+        height: 30px;
+        font-size: 20px;
+    }
+
+    .inbox-search-wrap input {
+        margin-top: 30px;
+        font-size: 25px;
+        height: 35px;
+        width: 232px;
+        margin: 30px 0 0 0;
+    }
+
+    .input_msg_write {
+        height: 50px;
+    }
+
+    #chat_form {
+        font-size: 30px;
+    }
+
+    #chat_form .message {
+        font-size: 20px;
+    }
+
+    #chat_form .msg_send_btn {
+        font-size: 20px;
+    }
 }
