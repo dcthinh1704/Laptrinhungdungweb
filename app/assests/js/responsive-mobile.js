@@ -34,4 +34,32 @@ if (mediaQuery.matches) {
           blog_page.style.display = 'flex';
         }
     })
+    var navbar = document.getElementById('mobile-navbar');
+    var moblieMenu = document.getElementById('mobile-menu');
+    moblieMenu.onclick = function(){
+      var isClosed = navbar.style.overflow === 'hidden';
+      if (isClosed){
+        navbar.style.overflow = 'initial';
+      } else{
+        navbar.style.overflow = 'hidden';
+      }
+    }
+    function BacktoInboxPeo() {
+        var conservation = document.getElementById('conservation');
+        var inboxList = document.getElementById('inbox-list')
+        var isOpened = conservation.style.display !== 'none';
+        if (isOpened){
+          conservation.style.display = 'none';
+          inboxList.style.display = "block";
+        }
+    }
+    function toConservation() {
+        var conservation = document.getElementById('conservation');
+        var inboxList = document.getElementById('inbox-list')
+        var isOpened = inboxList.style.display !== 'none';
+        if (isOpened){
+          conservation.style.display = 'block';
+          inboxList.style.display = "none";
+        }
+      }
 }

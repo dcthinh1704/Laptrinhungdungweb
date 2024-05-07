@@ -254,6 +254,7 @@
 
     /* start notification page */
     .notification{
+        max-width: 435px;
         position: fixed;
         top: 0;
         right: 0;
@@ -264,6 +265,10 @@
         align-items: center;
         justify-content: center;
         display: none;
+        margin: 0;
+    }
+    .noti-container{
+        margin: auto;
     }
     .noti-header{
         background-color: rgba(52, 58, 64, 0.95);
@@ -380,6 +385,74 @@
     
 
     /* end profile page */
+
+    /* start chat page */
+    .h3-name-web{
+        display: none;
+    }
+    .chat-container{
+        margin-left: 0;
+    }
+    .name-user-display{
+        margin-top: 15px;
+    }
+    .chatbox-bg, .inbox-mess, .chat-messing{
+        padding-left: unset;
+        /* position: relative; */
+        /* z-index: 20; */
+    }
+    .chat-messing{
+        margin-left: -40px;
+    }
+    .inbox-peo{
+        /* position: relative;
+        z-index: 10;
+        left: unset;
+        width: 100vw; */
+        width: 100vw;
+        height: 100vh;
+        background-color: #fff;
+        /* display: none; */
+
+
+    }
+    .inbox-peo-mem{
+        background-color: #fff;
+        width: 100%;
+        left: 0;
+        border-bottom: solid #999 2px;
+        padding: 0;
+        padding-bottom: 10px;
+        margin-top: 0;
+    }
+    .inbox-peo-header p{
+        font-size: 15px;
+        margin-left: 20px;
+    }
+    .inbox-search-wrap input{
+        width: 200px;
+        margin-right: 15px;
+
+    }
+    .inbox-search-wrap{
+        margin-left: -15px;
+    }
+    .mess{
+        /* position: absolute;
+        width: 100vw;
+        z-index: 50; */
+        width: 100vw;
+    }
+    .msg_history{
+        margin-top: -420px;
+    }
+    .mobile-back-button{
+        display: flex;
+
+    }
+
+
+    /* end chat page */
 
 
 

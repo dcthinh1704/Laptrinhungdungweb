@@ -50,7 +50,7 @@
                 >
               </li>
               <li>
-                <a href="#" title="Message" class="nav_mess"
+                <a href="/chat" title="Message" class="nav_mess"
                   ><i class="fas fa-envelope"></i>
                   <span class="badge">3</span></a
                 >
@@ -124,7 +124,7 @@
                     {% for title, content in blog_info %}
                     <article class="post card-border" id="post-{{ loop.index }}">
                         <header class="post-header text-center">
-                            <a class="post-title" href="#">{{ title }}</a>
+                            <a class="post-title" href="/blog/{{ title|urlencode }}">{{ title }}</a>
                             <!-- desc post item -->
                             <div class="post-meta">
                         <div class="post-meta-detail post-meta-detail-time">
@@ -251,7 +251,7 @@
               </div>
               <div class="rs2-profile">
                 <div class="rs2-pro-img"></div>
-                <div class="rs2-pro-name">Thinh Dang</div>
+                <div class="rs2-pro-name">{{user_info[0]}}</div>
                 <!-- List info -->
                 <div class="rs2-info-list">
                   <p class="rs2-pro-role">Role
