@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./assets/css/style.css" />
+    <link rel="stylesheet" href="./assets/css/reset.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      integrity="sha384-X6d13e5gKALF2DI8z5/jFfkhpk11lK5vdOB67HquyKbSrLp04I0ypSNf/JFF6Ds3"
+      crossorigin="anonymous"
+    />
+    <link href='https://fonts.googleapis.com/css?family=Great Vibes' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Lily Script One' rel='stylesheet'>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <title>Your Blog</title>
+    <style></style>
+  </head>
+  <body>
+    <!-- Header -->
+    <div id="header">
+          <nav class="navbar">
+            <div class="web-name">
+              <h1 style="font-family: 'Lily Script One';">OpenU</h1>
+            </div>
+            <ul class="navbar_items">
+              <li class="active">
+                <a class="navbar_items_home" href="#" title="Home"><i class="fas fa-home"></i>        
+                </a>
+              </li>
+              <li>
+                <a href="#" title="Search"><i class="fas fa-search"></i></a>
+              </li>
+              <li>
+                <a href="#" title="Blog"><i class="fas fa-edit"></i></a>
+              </li>
+              <li>
+                <a
+                  href="#"
+                  title="Notification"
+                  class="nav_noti"
+                  onclick="toggleNotifications()"
+                  ><i class="fas fa-bell nav_noti_icon"></i>
+                  <span class="badge">12</span></a
+                >
+              </li>
+              <li>
+                <a href="#" title="Message" class="nav_mess"
+                  ><i class="fas fa-envelope"></i>
+                  <span class="badge">3</span></a
+                >
+              </li>
+            </ul>
+            <ul class="navbar_items nav-bottom">
+              <li>
+                <a href="#" title="Profile"><i class="fas fa-user"></i></a>
+              </li>
+              <li>
+                <a href="#" title="Settings"
+                  ><i class="fa-solid fa-gear setting"></i
+                ></a>
+              </li>
+            </ul>
+          </nav>
+    </div>
+    <div id="blog-container">
+        <div class="notification-container">
+            <div class="notification-name">
+                <h1 class="notification-name-details">Notification</h1>
+            </div>
+            <div class="notification-session">
+                <div class="notification-session-all">
+                    <span class="notification-session-all-details">All</span>
+                </div>
+                <div class="notification-session-new">
+                    <span class="notification-session-new-details">New</span>
+                </div>
+            </div>
+            <div class="notification-content">
+                <div class="notification-user-image">
+                    <a href="#">
+                      <img src="./assets/img/avatar.jpg" alt="avatar">
+                      <span class="notification-badge">
+                        <i class="notification-badge-user fas fa-user"></i>
+                      </span>
+                    
+                    </a>
+                </div>
+                <div class="notification-content-details">
+                    <div class="notification-username">
+                        <a href="#"><h2 class="notification-username-details">Username</h2></a>
+                        <time class="notification-time" aria-label="2 days" datetime="2024-03-13T10:21:48.058Z" title="17:21 13 thg 3" data-visualcompletion="ignore-dynamic">2 days</time>
+                    </div>
+                    <div class="notification-details">
+                        <a href="#"><p>Gợi ý theo dõi</p></a>
+                    </div>
+                    <div class="notification-details-decribe">
+
+                    </div>
+                </div>
+            </div>
+            <div class="notification-content">
+                <div class="notification-user-image">
+                    <a href="#">
+                      <img src="./assets/img/avatar2.jpg" alt="avatar">
+                      <span class="notification-badge">
+                        <i class="notification-badge-user fas fa-user"></i>
+                      </span>
+                    </a>
+                </div>
+                <div class="notification-content-details">
+                    <div class="notification-username">
+                        <a href="#"><h2 class="notification-username-details">Username</h2></a>
+                        <time class="notification-time" aria-label="3 weeks" datetime="2024-03-13T10:21:48.058Z" title="17:21 13 thg 3" data-visualcompletion="ignore-dynamic">3 weeks</time>
+                    </div>
+                    <div class="notification-details">
+                        <a href="#"><p>Gợi ý theo dõi</p></a>
+                    </div>
+                    <div class="notification-details-decribe">
+
+                    </div>
+                </div>
+            </div>
+            <div class="notification-content">
+                <div class="notification-user-image">
+                    <a href="#">
+                      <img src="./assets/img/avatar3.jpg" alt="avatar">
+                      <span class="notification-badge">
+                        <i class="notification-badge-user fas fa-user"></i>
+                      </span>
+                    </a>
+                </div>
+                <div class="notification-content-details">
+                    <div class="notification-username">
+                        <a href="#"><h2 class="notification-username-details">Username</h2></a>
+                        <time class="notification-time" aria-label="2 months" datetime="2024-03-13T10:21:48.058Z" title="17:21 13 thg 3" data-visualcompletion="ignore-dynamic">5 months</time>
+                    </div>
+                    <div class="notification-details">
+                        <a href="#"><p>Đã theo dõi bạn</p></a>
+                    </div>
+                    <div class="notification-details-decribe">
+                        <p></p>
+                    </div>
+                </div>
+            </div>
+            <div class="notification-content">
+              <div class="notification-user-image">
+                  <a href="#">
+                    <img src="./assets/img/avatar4.jpg" alt="avatar">
+                    <span class="notification-badge">
+                      <i class="notification-badge-star fas fa-star"></i>
+                    </span>
+                  </a>
+              </div>
+              <div class="notification-content-details">
+                  <div class="notification-username">
+                      <a href="#"><h2 class="notification-username-details">Username</h2></a>
+                      <time class="notification-time" aria-label="2 months" datetime="2024-03-13T10:21:48.058Z" title="17:21 13 thg 3" data-visualcompletion="ignore-dynamic">5 months</time>
+                  </div>
+                  <div class="notification-details">
+                      <a href="#"><p class="notification-content-old">Đã đăng một blog mới</p></a>
+                  </div>
+                  <div class="notification-details-decribe">
+                      <p></p>
+                  </div>
+              </div>
+          </div>
+          <div class="notification-content">
+            <div class="notification-user-image">
+                <a href="#">
+                  <img src="./assets/img/avatar3.jpg" alt="avatar">
+                  <span class="notification-badge">
+                    <i class="notification-badge-comment fas fa-comment"></i>
+                  </span>
+                </a>
+            </div>
+            <div class="notification-content-details">
+                <div class="notification-username">
+                    <a href ="#" ><h2 class="notification-username-details">Username</h2></a>
+                    <time class="notification-time" aria-label="2 months" datetime="2024-03-13T10:21:48.058Z" title="17:21 13 thg 3" data-visualcompletion="ignore-dynamic">5 months</time>
+                </div>
+                <div class="notification-details">
+                    <a href="#"><p class="notification-content-old">Đã bình luận một blog</p></a>
+                </div>
+                <div class="notification-details-decribe">
+                    <p></p>
+                </div>
+            </div>
+          </div>
+          <div class="notification-content">
+            <div class="notification-user-image">
+                <a href="#">
+                  <img src="./assets/img/avatar3.jpg" alt="avatar">
+                  <span class="notification-badge">
+                    <i class="notification-badge-heart fas fa-heart"></i>
+                  </span>
+                </a>
+            </div>
+            <div class="notification-content-details">
+                <div class="notification-username">
+                    <a href ="#" ><h2 class="notification-username-details">Username</h2></a>
+                    <time class="notification-time" aria-label="2 months" datetime="2024-03-13T10:21:48.058Z" title="17:21 13 thg 3" data-visualcompletion="ignore-dynamic">5 months</time>
+                </div>
+                <div class="notification-details">
+                    <a href="#"><p class="notification-content-old">Đã thích một blog</p></a>
+                </div>
+                <div class="notification-details-decribe">
+                    <p></p>
+                </div>
+            </div>
+          </div>
+        </div>
+    </div>
+    
+
+    <!-- Font Awesome Icons (You can include this from a CDN) -->
+    <script
+      src="https://kit.fontawesome.com/c9f23d41c7.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/js/all.min.js"></script>
+
+    <script>
+      function toggleNotifications() {
+        const notifications = document.querySelector(".notifications");
+        notifications.style.display =
+          notifications.style.display === "block" ? "none" : "block";
+      }
+    </script>
+  </body>
+</html>
